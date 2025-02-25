@@ -124,6 +124,11 @@ spec:
                 secretKeyRef:
                   key: api-default-port
                   name: seasonpass-env
+            - name: STAGE
+              valueFrom:
+                secretKeyRef:
+                  key: stage
+                  name: seasonpass-env
           image: {{ $.Values.seasonpass.image.repository }}:{{ $.Values.seasonpass.image.tag }}
           name: seasonpass-api
       {{- with $.Values.seasonpass.nodeSelector }}
